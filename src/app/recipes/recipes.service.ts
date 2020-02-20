@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Recipe } from './recipe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class RecipesService {
       ingredients: ['Spaghetti', 'Meat', 'Tomatoes'] ,
     },
     {
-      id: 'r2',
+      id: 'r3',
       title: 'gfdgda',
       imageUrl: 'https://via.placeholder.com/150',
       ingredients: ['sadasdaa', 'asadasd', 'sadsada'] ,
@@ -37,5 +38,11 @@ export class RecipesService {
       return recipe.id === recipeId;
       })
     };
+  }
+
+  deleteRecipe(recipeId: string) {
+    this.recipes = this.recipes.filter(recipe => {
+      return recipe.id !== recipeId;
+    });
   }
 }
